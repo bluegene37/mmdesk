@@ -6,9 +6,9 @@ class AppTheme {
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
         seedColor: const Color(0xFF0047FF),
-        background: const Color(0xFFF8F9FA),
-        surface: Colors.white,
+        surface: const Color(0xFFF8F9FA),
       ),
+      scaffoldBackgroundColor: const Color(0xFFF8F9FA),
       brightness: Brightness.light,
       appBarTheme: const AppBarTheme(
         centerTitle: false,

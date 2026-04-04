@@ -30,7 +30,8 @@ class MMDeskApp extends ConsumerWidget {
       title: 'MMDesk',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      // Force light theme so the background isn't black when the device is in dark mode.
+      themeMode: ThemeMode.light,
       routerConfig: router,
       debugShowCheckedModeBanner: false,
     );
