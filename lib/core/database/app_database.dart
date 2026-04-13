@@ -5,10 +5,11 @@ import 'package:path/path.dart' as p;
 import 'dart:io';
 import 'package:sqlite3/sqlite3.dart';
 import 'package:sqlite3_flutter_libs/sqlite3_flutter_libs.dart';
+import 'tables/menu_items.dart';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: []) // We will add tables later
+@DriftDatabase(tables: [MenuItems])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 

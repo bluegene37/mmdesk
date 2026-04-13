@@ -22,6 +22,27 @@ User? currentUser(Ref ref) {
   return Supabase.instance.client.auth.currentUser;
 }
 
+final userRoleProvider = FutureProvider<String?>((ref) async {
+  final user = ref.watch(currentUserProvider);
+  if (user == null) return null;
+  
+  final client = ref.watch(supabaseAuthProvider);
+  try {
+    final response = await client
+        .from('user_roles')
+        .select('roles(name)')
+        .eq('user_id', user.id)
+        .maybeSingle();
+        
+    if (response != null && response['roles'] != null) {
+      return response['roles']['name'] as String?;
+    }
+  } catch (e) {
+    debugPrint('Error fetching user role: $e');
+  }
+  return null;
+});
+
 class AuthRepository {
   final SupabaseClient _client;
 
